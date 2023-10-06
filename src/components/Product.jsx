@@ -7,9 +7,28 @@ import Flexx from './Flexx'
 import { AiFillHeart } from 'react-icons/ai';
 import { BiGitCompare } from 'react-icons/bi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { addtocart } from '../slices/Cartslices'
+import { useDispatch } from 'react-redux'
 
 
 const Product = ({heading,price}) => {
+
+    let dispatch = useDispatch()
+
+    let handlecart = ()=>{
+        dispatch(addtocart({
+            pname: heading,
+            pprice: price,
+            img : product1,
+            quantity : 1
+            
+        }))
+    }
+
+
+
+    
+
   return (
     <div className='mx-3'>      
         <div className="relative overflow-hidden group">
@@ -25,7 +44,7 @@ const Product = ({heading,price}) => {
                     <BiGitCompare></BiGitCompare>
                 </Flexx>
                 <Flexx className="justify-end items-center gap-2 ">
-                    <p className='font-pop font-base text-normal'>Add to Cart</p>
+                    <p onClick={handlecart} className='font-pop font-base text-normal cursor-pointer'>Add to Cart</p>
                     <AiOutlineShoppingCart></AiOutlineShoppingCart>
                 </Flexx>
 

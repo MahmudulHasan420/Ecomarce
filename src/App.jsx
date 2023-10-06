@@ -16,6 +16,7 @@ import Singup from "./pages/Singup";
 import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Checkout from "./pages/Checkout";
+import Home from "./pages/Home";
 
 
 
@@ -61,6 +62,12 @@ const router = createBrowserRouter(
         <Route
           path="/checkout"
          element={<Checkout/>}
+        >
+        </Route>
+
+        <Route
+          path="/"
+         element={<Home/>}
         >
         </Route>
 

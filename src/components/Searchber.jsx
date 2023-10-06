@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from './Container'
 import Flexx from './Flexx'
 import {FaBars,FaAngleDown,} from 'react-icons/fa'
 import {BiSolidUser} from 'react-icons/bi'
 import {BsFillCartFill ,BsSearch} from 'react-icons/bs'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector, } from 'react-redux'
 import { pagename } from '../slices/Breadcrumslices'
 
 
 
 const Searchber = () => {
 
+   let [open, setopen]=useState(false)
     let dispatch =useDispatch()
 
 
       let handlebreadcrum =(name)=>{
         dispatch(pagename(name))
       }
+
+      let cart = useSelector((state)=>state.cart.cartItem)
 
   return (
     <section className='bg-ash py-6'>
@@ -42,12 +45,17 @@ const Searchber = () => {
                     </Link>
                 </Flexx>
                    
-                    <Link onClick={()=>handlebreadcrum("login")} to="/checkout">
-                        <BsFillCartFill/>
+                    <Link>
+                        <BsFillCartFill onClick={()=>setopen(true)}/>{cart.length}
                     </Link>
                      
                 </Flexx>
             </Flexx>
+            {open &&
+            <div className="w-1/3 bg-red-500 h-screen absolute top-0 right-0 z-10">
+                  <BsFillCartFill onClick={()=>setopen(false)}/>
+            </div>
+            }       
         </Container>
     </section>
   )

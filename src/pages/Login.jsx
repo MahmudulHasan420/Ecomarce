@@ -12,7 +12,7 @@ const Login = () => {
     let pagename =useSelector((state=>state.Breadcrum.previousname))
   return (
    <Container>
-    <Pageheading text="Login"/>
+    <Pageheading text="Login" className="mt-32"/>
 
     <Flexx>
         {pagename} /
