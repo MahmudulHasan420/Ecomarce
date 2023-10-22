@@ -27,10 +27,44 @@ export const Cartslices = createSlice({
   }
 
     },
-    
+    dacrement:(state,action) =>{
+      state.cartItem.map((item) => { 
+        if (item.pname == action.payload.pname) {
+            if(item.quantity>1){
+              item.quantity = item.quantity - 1
+            }
+            else{
+              state.cartItem.map((item,index) => { 
+                if (item.pname == action.payload.pname) {
+                   
+                   state.cartItem.splice(index,1)
+                }
+            });
+            }
+           
+        }
+    });
+    },
+    increment:(state,action) =>{
+      state.cartItem.map((item) => { 
+        if (item.pname == action.payload.pname) {
+            item.quantity = item.quantity + 1
+           
+        }
+    });
+    },
+    remove:(state,action) =>{
+      state.cartItem.map((item,index) => { 
+        if (item.pname == action.payload.pname) {
+           
+           state.cartItem.splice(index,1)
+        }
+    });
+    },
+
   },
 })
 
-export const { addtocart } = Cartslices.actions
+export const { addtocart , dacrement, increment ,remove } = Cartslices.actions
 
 export default Cartslices.reducer

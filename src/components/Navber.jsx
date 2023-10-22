@@ -35,11 +35,15 @@ const Navber = () => {
           </Link>
                 
                 
-                  <List text="About"/>
+          <Link onClick={()=>handlebreadcrum("about")} to="/about">
+            <List text="About"/> 
+          </Link>
                 <Link onClick={()=>handlebreadcrum("contact")} to="/contact">
                   <List text="Contact"/> 
                 </Link>
-                  <List text="Journal"/>
+                <Link onClick={()=>handlebreadcrum("about")} to="/productditails">
+            <List text="Journal"/> 
+          </Link>
             </ul>
         </div>
        </Flexx>

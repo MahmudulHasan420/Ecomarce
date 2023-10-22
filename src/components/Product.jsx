@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from './Image'
 import product1 from '../assets/product1.png'
 import Badge from './Badge'
@@ -11,7 +11,9 @@ import { addtocart } from '../slices/Cartslices'
 import { useDispatch } from 'react-redux'
 
 
-const Product = ({heading,price}) => {
+const Product = ({heading,price,src}) => {
+
+    let [open, setopen ] = useState(false)
 
     let dispatch = useDispatch()
 
@@ -30,9 +32,9 @@ const Product = ({heading,price}) => {
     
 
   return (
-    <div className='mx-3'>      
+    <div className='mx-3 mb-28'>      
         <div className="relative overflow-hidden group">
-            <Image src={product1} alt="Product Photo" className="w-full" />
+            <Image src={`${src}`} alt="Product Photo" className="w-full" />
             <Badge text="new" className="absolute top-5 left-5"/>
             <div className='bg-white p-6 absolute -bottom-32 left-0 w-full group-hover:bottom-0 duration-300'>
                 <Flexx className="justify-end items-center gap-2">
@@ -54,7 +56,11 @@ const Product = ({heading,price}) => {
                 <ProductHeading text={heading}/>
                 <p className='font-pop font-base text-normal '>{price}</p>
         </Flexx>
+
+        
     </div>
+
+    
 
   )
 }

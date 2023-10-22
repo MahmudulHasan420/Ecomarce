@@ -6,7 +6,7 @@ const NextArrows = (props) => {
 
   return (
     <div
-    className={`flex justify-center items-center w-16 h-16 rounded-full bg-[#979797] ${className}`}
+    className={`flex justify-center items-center w-16 h-16 rounded-full bg-[#979797] ${props.class}`}
     onClick={onClick}
   ><HiArrowSmRight/></div>
   )

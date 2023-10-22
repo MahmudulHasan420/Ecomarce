@@ -17,6 +17,8 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
+import About from "./pages/About";
+import Productditails from "./pages/Productditails";
 
 
 
@@ -62,6 +64,17 @@ const router = createBrowserRouter(
         <Route
           path="/checkout"
          element={<Checkout/>}
+        >
+        </Route>
+        <Route
+          path="/about"
+         element={<About/>}
+        >
+        </Route>
+
+        <Route
+          path="/productditails"
+         element={<Productditails/>}
         >
         </Route>
 
